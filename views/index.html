@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phonebook</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/contacts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="header">
+    <h1>Phonebook</h1>
+</div>
+
+<table id="contacts-table" class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Ime</th>
+        <th scope="col">Prezime</th>
+        <th scope="col">Broj</th>
+        <th class="th-options" scope="col">Opcije</th>
+    </tr>
+    </thead>
+    <tbody id="contacts-list">
+    </tbody>
+</table>
+
+<button id="fab" type="button" class="btn btn-primary">
+    <i class="fas fa-plus"></i>
+</button>
+
+<div id="create-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dodaj novi kontakt</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="create-form">
+            <div class="modal-body">
+                <input placeholder="Ime" type="text" name="first_name" required>
+                <br>
+                <input placeholder="Prezime" type="text" name="last_name" required>
+                <br>
+                <input placeholder="Broj telefona" type="text" max="10" name="telephone_number" required>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Sacuvaj</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Otkazi</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
