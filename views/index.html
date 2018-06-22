@@ -10,12 +10,22 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
 </head>
 <body>
 
 <div class="header">
     <h1>Phonebook</h1>
+</div>
+
+<div class="filter-field-wrap">
+    <select id="filter-key">
+        <option value="first_name">Ime</option>
+        <option value="last_name" selected>Prezime</option>
+        <option value="telephone_number">Broj telefona</option>
+    </select>
+    <input type="text" id="filter" placeholder="Filter">
 </div>
 
 <table id="contacts-table" class="table table-dark">

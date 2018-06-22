@@ -6,11 +6,23 @@ $(document).ready(function () {
     var modalType = 1; // 1 - CREATE CONTACT, 2 - EDIT CONTACT
     var selectedContact;
     var inputNames = ['first_name', 'last_name', 'telephone_number'];
+    var filter = {
+        key: 'last_name',
+        value: ''
+    };
 
 
-    function getContacts() {
+    function getContacts(filterValue) {
+
+        let _url = baseUrl;
+
+        if (filterValue) {
+            _url += "?key=" + filter.key + "&value=" + filterValue
+        }
+
+
         $.ajax({
-            url: baseUrl,
+            url: _url,
             type: "GET",
             success: function (res) {
                 console.log(res)
@@ -35,7 +47,7 @@ $(document).ready(function () {
         $("#" + listId).empty();
         data.forEach(function (el) {
             let _html = `
-                <tr>
+                <tr class="body-tr">
                     <th scope="row">` + el.first_name + `</th>
                     <td>` + el.last_name + `</td>
                     <td>` + el.telephone_number + `</td>
@@ -69,6 +81,10 @@ $(document).ready(function () {
         $('#create-modal').modal(action);
     }
 
+    function clearInputs() {
+        $('input').val('');
+    }
+
     $('#fab').click(function () {
         modalType = 1;
         handleModal('show');
@@ -94,12 +110,22 @@ $(document).ready(function () {
             contentType: "application/json",
             data: JSON.stringify(body),
             success: function (res) {
-                inputs.val('');
+                clearInputs();
                 handleModal('hide');
                 getContacts();
             }
         });
 
+    });
+
+    $('#filter-key').change(function() {
+        clearInputs();
+        filter.key = $(this).val();
+        getContacts();
+    });
+
+    $('input#filter').keyup(function() {
+        getContacts($(this).val());
     });
 
     $(document).on('click', 'i.delete-contact-btn', function (e) {
@@ -116,7 +142,7 @@ $(document).ready(function () {
     })
 
     $('#create-modal').on('hidden.bs.modal', function () {
-        $('form').find('input').val('');
+        clearInputs();
     })
 
 })

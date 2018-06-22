@@ -1,10 +1,33 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
 #contacts-table {
     width: 75%;
     margin: 24px auto;
     background: #464e58;
 }
-#contacts-table tr:hover {
-    background: #3a4149;
+#contacts-table thead th {
+    border: inherit;
+}
+#contacts-table tbody tr {
+    background: whitesmoke;
+    color: #464e58;
+}
+#contacts-table tbody tr:hover {
+    background: #dedede;
+}
+
+.filter-field-wrap {
+    width: 75%;
+    margin: auto;
+}
+.filter-field-wrap input, select {
+    width: 100%
+}
+.filter-field-wrap select {
+    padding: 4px;
+    border-radius: 4px;
 }
 
 .header {
