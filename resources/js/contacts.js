@@ -14,7 +14,7 @@ $(document).ready(function () {
 
     function getContacts(filterValue) {
 
-        let _url = baseUrl;
+        var _url = baseUrl;
 
         if (filterValue) {
             _url += "?key=" + filter.key + "&value=" + filterValue
@@ -46,7 +46,7 @@ $(document).ready(function () {
     function render(data) {
         $("#" + listId).empty();
         data.forEach(function (el) {
-            let _html = `
+            var _html = `
                 <tr class="body-tr">
                     <th scope="row">` + el.first_name + `</th>
                     <td>` + el.last_name + `</td>
@@ -74,7 +74,7 @@ $(document).ready(function () {
 
     function handleModal(action) {
         if (action == 'show') {
-            let _title = modalType == 1 ? "Dodaj Novi Kontakt" : 2 ? "Izmeni Kontakt" : null
+            var _title = modalType == 1 ? "Dodaj Novi Kontakt" : 2 ? "Izmeni Kontakt" : null
             $('.modal-title').text(_title);
         }
 
@@ -133,7 +133,7 @@ $(document).ready(function () {
     })
 
     $(document).on('click', 'i.edit-contact-btn', function (e) {
-        let _id = $(this).attr('contact-id');
+        var _id = $(this).attr('contact-id');
         var selected = contacts.find(function (c) {
             return c.id == _id
         });
