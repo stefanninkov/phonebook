@@ -5,8 +5,8 @@ const ContactsHandler = function (db) {
 
 ContactsHandler.prototype.create = function (req, res) {
 
-    let _sql = "INSERT INTO " + this.table + " (first_name, last_name, telephone_number) VALUES (?)";
-    let _params = [req.body.first_name, req.body.last_name, req.body.telephone_number];
+    var _sql = "INSERT INTO " + this.table + " (first_name, last_name, telephone_number) VALUES (?)";
+    var _params = [req.body.first_name, req.body.last_name, req.body.telephone_number];
 
     this.db.query(_sql, [_params], function (err, result) {
         if (!err) {
@@ -18,7 +18,7 @@ ContactsHandler.prototype.create = function (req, res) {
 
 ContactsHandler.prototype.delete = function (req, res) {
 
-    let _sql = "DELETE FROM " + this.table + " WHERE id = ?";
+    var _sql = "DELETE FROM " + this.table + " WHERE id = ?";
 
     this.db.query(_sql, [req.params.id], function (err, result) {
         if (!err) {
@@ -49,8 +49,8 @@ ContactsHandler.prototype.update = function (req, res) {
 
     console.log(req.query)
 
-    let _sql = "UPDATE " + this.table + " SET first_name = ?, last_name = ?, telephone_number = ? WHERE id = ?";
-    let _params = [req.body.first_name, req.body.last_name, req.body.telephone_number, req.params.id]
+    var _sql = "UPDATE " + this.table + " SET first_name = ?, last_name = ?, telephone_number = ? WHERE id = ?";
+    var _params = [req.body.first_name, req.body.last_name, req.body.telephone_number, req.params.id]
 
     this.db.query(_sql, _params, function (err, result) {
         if (!err) {
